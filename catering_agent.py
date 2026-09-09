@@ -117,24 +117,6 @@ st.markdown("""
       box-shadow: 0 0 0 2px rgba(247,148,29,0.25) !important;
   }
 
-  /* Primary buttons */
-  .stButton > button {
-      background: #fff;
-      border: 1.5px solid #F7941D;
-      color: #7A3000;
-      border-radius: 8px;
-      font-weight: 600;
-      width: 100%;
-      pointer-events: auto;
-  }
-  .stButton > button:hover, .stButton > button:focus {
-      background: #FFF3E0;
-      border-color: #E8531A;
-      color: #5A1E00;
-  }
-  .stButton > button * {
-      pointer-events: none;
-  }
 
   /* Sidebar section labels */
   .sidebar-label {
