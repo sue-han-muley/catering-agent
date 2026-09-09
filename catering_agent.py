@@ -119,16 +119,21 @@ st.markdown("""
 
   /* Primary buttons */
   .stButton > button {
-      background: #fff !important;
-      border: 1.5px solid #F7941D !important;
-      color: #7A3000 !important;
-      border-radius: 8px !important;
-      font-weight: 600 !important;
+      background: #fff;
+      border: 1.5px solid #F7941D;
+      color: #7A3000;
+      border-radius: 8px;
+      font-weight: 600;
+      width: 100%;
+      pointer-events: auto;
   }
-  .stButton > button:hover {
-      background: #FFF3E0 !important;
-      border-color: #E8531A !important;
-      color: #5A1E00 !important;
+  .stButton > button:hover, .stButton > button:focus {
+      background: #FFF3E0;
+      border-color: #E8531A;
+      color: #5A1E00;
+  }
+  .stButton > button * {
+      pointer-events: none;
   }
 
   /* Sidebar section labels */
