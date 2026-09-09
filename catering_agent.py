@@ -134,13 +134,16 @@ st.markdown("""
 
   /* Primary buttons */
   .stButton > button {
-      border: 1.5px solid #F7941D;
-      color: #C45A00;
-      border-radius: 8px;
+      background: #fff !important;
+      border: 1.5px solid #F7941D !important;
+      color: #7A3000 !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
   }
   .stButton > button:hover {
-      background: #FFF3E0;
-      border-color: #E8531A;
+      background: #FFF3E0 !important;
+      border-color: #E8531A !important;
+      color: #5A1E00 !important;
   }
 
   /* Sidebar section labels */
