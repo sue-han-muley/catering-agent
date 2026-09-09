@@ -214,7 +214,7 @@ _defs = {
     "ca_history":        [],
     "ca_token":          None,
     "ca_token_exp":      0.0,
-    "ca_sidebar_hidden": False,
+    "ca_sidebar_hidden": True,
 }
 for k, v in _defs.items():
     if k not in st.session_state:
@@ -277,10 +277,6 @@ if st.session_state.ca_sidebar_hidden:
     st.markdown(HIDE_SIDEBAR_CSS, unsafe_allow_html=True)
 
 with st.sidebar:
-    if st.button("✕  Hide", use_container_width=True):
-        st.session_state.ca_sidebar_hidden = True
-        st.rerun()
-
     st.markdown('<p class="sidebar-label">Proxy</p>', unsafe_allow_html=True)
     st.session_state.ca_proxy_url = st.text_input(
         "Proxy URL", value=st.session_state.ca_proxy_url, label_visibility="collapsed")
@@ -310,17 +306,19 @@ with st.sidebar:
     st.session_state.ca_system = st.text_area(
         "system", value=st.session_state.ca_system, height=160, label_visibility="collapsed")
 
-    st.markdown("---")
-    if st.button("🗑  Clear chat", use_container_width=True):
-        st.session_state.ca_messages = []
-        st.session_state.ca_history  = []
-        st.rerun()
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-if st.session_state.ca_sidebar_hidden:
-    if st.button("☰"):
-        st.session_state.ca_sidebar_hidden = False
+col_settings, col_clear = st.columns([1, 1])
+with col_settings:
+    label = "☰  Settings" if st.session_state.ca_sidebar_hidden else "✕  Hide settings"
+    if st.button(label, use_container_width=True):
+        st.session_state.ca_sidebar_hidden = not st.session_state.ca_sidebar_hidden
+        st.rerun()
+with col_clear:
+    if st.button("🗑  Clear chat", use_container_width=True):
+        st.session_state.ca_messages = []
+        st.session_state.ca_history  = []
         st.rerun()
 
 # Branded header
