@@ -102,9 +102,16 @@ st.markdown("""
   .badge-tokens { background:#FFF8E1; color:#F57F17; border:1px solid #FFE082; }
 
   /* Chat input */
+  [data-testid="stChatInput"] {
+      padding: 16px 12px !important;
+  }
   [data-testid="stChatInput"] textarea {
       border: 1.5px solid #F7941D !important;
       border-radius: 12px !important;
+      padding: 16px 18px !important;
+      min-height: 60px !important;
+      font-size: 15px !important;
+      line-height: 1.5 !important;
   }
   [data-testid="stChatInput"] textarea:focus {
       box-shadow: 0 0 0 2px rgba(247,148,29,0.25) !important;
