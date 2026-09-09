@@ -302,6 +302,17 @@ with st.sidebar:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
+# Branded header
+st.markdown(f"""
+<div class="pronto-header">
+    {_logo_html()}
+    <div class="pronto-header-text">
+        <h2>Catering Quote Assistant</h2>
+        <p>Menus · Pricing · Dietary needs · Event planning</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 col_settings, col_clear = st.columns([1, 1])
 with col_settings:
     label = "☰  Settings" if st.session_state.ca_sidebar_hidden else "✕  Hide settings"
@@ -313,17 +324,6 @@ with col_clear:
         st.session_state.ca_messages = []
         st.session_state.ca_history  = []
         st.rerun()
-
-# Branded header
-st.markdown(f"""
-<div class="pronto-header">
-    {_logo_html()}
-    <div class="pronto-header-text">
-        <h2>Catering Quote Assistant</h2>
-        <p>Menus · Pricing · Dietary needs · Event planning</p>
-    </div>
-</div>
-""", unsafe_allow_html=True)
 
 auth_ready  = bool(_TOKEN_URL and _CLIENT_ID and _CLIENT_SECRET)
 proxy_ready = bool(st.session_state.ca_proxy_url)
